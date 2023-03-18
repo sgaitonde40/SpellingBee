@@ -63,7 +63,6 @@ public class SpellingBee {
     public void sort() {
         // YOUR CODE HERE
         words = mergesort(words, 0, words.size() - 1);
-        System.out.println(words);
     }
 
     public ArrayList<String> mergesort(ArrayList<String> s, int low, int high) {
@@ -83,20 +82,20 @@ public class SpellingBee {
         int i = 0, j = 0;
         while(i < one.size() && j < two.size()) {
             if(one.get(i).compareTo(two.get(j)) < 0) {
-                merged.add(i+j, one.get(i));
+                merged.add(one.get(i));
                 i++;
             }
             else {
-                merged.add(i+j, two.get(j));
+                merged.add(two.get(j));
                 j++;
             }
         }
         while(j < two.size()) {
-            merged.add(i+j, two.get(j));
+            merged.add(two.get(j));
             j++;
         }
         while(i < one.size()) {
-            merged.add(i+j, one.get(i));
+            merged.add(one.get(i));
             i++;
         }
         return merged;
@@ -126,7 +125,6 @@ public class SpellingBee {
             }
         }
         words = validwords;
-        System.out.println(validwords);
     }
 
     public boolean found(String s) {
@@ -187,7 +185,6 @@ public class SpellingBee {
 
     public static void main(String[] args) {
 
-        System.out.println("a".compareTo("b"));
 
         // Prompt for letters until given only letters.
         Scanner s = new Scanner(System.in);
